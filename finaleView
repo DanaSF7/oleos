@@ -1,0 +1,80 @@
+//
+//  sheet.swift
+//  finale
+//
+//  Created by Dana Al Fanek on 06/08/2023.
+//
+
+import SwiftUI
+
+struct finaleView: View {
+    
+    @State private var showSheet = false
+    @AppStorage("message") var message = ""
+    
+    var body: some View {
+        
+        ZStack{
+            Color.white
+            VStack {
+            Text("👉Next question! How good is your consentration level? ")
+                    .font(.title)
+                    .offset(y: -40)
+                    .padding(10)
+                Button{
+                    showSheet = true
+                    
+                }label: {
+                    VStack{
+                        Text("🤕Im easily distracted")
+                            .font(.title2)
+                            .padding()
+                            .background(.purple)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .opacity(20)
+                            .offset(x: 10,y: -10)
+                        
+                        Text("🫡I can easily concentrate on a certain thing")
+                            .font(.title2)
+                            .padding(
+                            )
+                            .background(.purple)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .opacity(20)
+                            .offset(x: 12)
+                        
+                        Text("😬if i consentrate on one thing, i get too wrapped up in it.")
+                            .font(.title2)
+                            .padding()
+                            .background(.purple)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .opacity(20)
+                            .offset(x: 10,y: 10)
+                        
+                    }
+                }
+                .padding()
+                .shadow(color: .black, radius: 5, x: 1.6, y: 1.6)
+                
+                Text(message)
+                    .padding()
+                
+                .sheet(isPresented: $showSheet) {
+                        
+                    }
+            }
+            
+            
+        }
+    }
+    
+    
+    struct finaleView_Previews: PreviewProvider {
+        static var previews: some View {
+            finaleView()
+        }
+    }
+}
