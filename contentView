@@ -1,0 +1,80 @@
+//
+//  ContentView.swift
+//  finale
+//
+//  Created by Dana Al Fanek on 05/08/2023.
+//
+
+
+import SwiftUI
+
+struct ContentView: View {
+    
+    @State private var showSheet = false
+    
+    @AppStorage("message") var message = ""
+    var body: some View {
+        ZStack{
+            Color.white
+            VStack {
+                
+                Text("👋Hi, tell us about you, how long do you usually sleep at night?")
+                    .font(.title)
+                    .offset(y: -40)
+                    .padding(10)
+                
+                Button{
+                    showSheet = true
+                    
+                }label:{
+                    VStack{
+                        Text("🥱 Less than 6 hours")
+                            .font(.title2)
+                            .padding()
+                            .background(.purple)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .opacity(20)
+                            .offset(x: 10,y: -10)
+                        
+                        Text("😌 8-10 hours")
+                            .font(.title2)
+                            .padding(
+                            )
+                            .background(.purple)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .opacity(20)
+                            .offset(x: 12)
+                        
+                        Text("😃 More than 10 hours")
+                            .font(.title2)
+                            .padding()
+                            .background(.purple)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .opacity(20)
+                            .offset(x: 10,y: 10)
+                        
+                    }
+                    .padding()
+                    .shadow(color: .black, radius: 5, x: 1.6, y: 1.6)
+                    
+                    Text(message)
+                        .padding()
+                    
+                }
+                    .sheet(isPresented: $showSheet) {
+                        
+                }
+                
+            }
+        }
+            
+        }
+    }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
